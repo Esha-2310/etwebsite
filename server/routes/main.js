@@ -163,7 +163,6 @@ router.post("/signup",async (req,res)=>{
        //const verificationToken = user.generateVerificationToken();
       // console.log(user._id)
        const token = jwt.sign({ _id: user._id}, process.env.JWT_SECRET)
-       const url = `http://localhost:3000/verify?id=${token}`
       /* transporter.sendMail({
          to: user.email,
          subject: 'Verify Account',
