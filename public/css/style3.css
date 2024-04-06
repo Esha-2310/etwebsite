@@ -1,0 +1,184 @@
+ /*Project Cards*/
+ .card-custom {
+    overflow: hidden;
+    min-height: 450px;
+    box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+  }
+  
+  .card-custom-img {
+    height: 200px;
+    min-height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-color: inherit;
+  }
+  
+  /* First border-left-width setting is a fallback */
+  .card-custom-img::after {
+    position: absolute;
+    content: "";
+    top: 161px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-top-width: 40px;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 545px;
+    border-left-width: calc(575px - 5vw);
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: inherit;
+  }
+  
+  .card-custom-avatar img {
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+    position: absolute;
+    top: 100px;
+    left: 1.25rem;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .card-custom-avatar img:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+  
+  .img-fluid {
+    background-color: #7ed956;
+  }
+  
+  #project1 {
+    /* background: #21d4fd linear-gradient(19deg, #21d4fd 0%, #b721ff 100%); */
+    background: rgb(68, 251, 68) linear-gradient(19deg, rgb(68, 251, 68) 0%, green 100%);
+  }
+  
+  #project2 {
+    background: #fad961 linear-gradient(90deg, #fad961 0%, #f76b1c 100%);
+  }
+  
+  #portfolio {
+    background-image: radial-gradient(
+      circle farthest-corner at 8.6% 21.8%,
+      rgba(231, 0, 0, 1) 0%,
+      rgb(139, 4, 4) 90.1%
+    );
+  }
+  
+  #projectCards {
+    margin-bottom: 100px !important;
+  }
+
+@media screen and (max-width: 3000px)/*laptop,desktop*/ {
+   #main{
+      background-image: url(./nandita.jpg);
+      height: 130vh;
+
+   }
+   
+  .nandita{
+    font-size: 2.5rem;
+    font-weight: 550;
+    margin-left: 3.3rem;
+    margin-bottom: 1.5rem;
+  }
+  h2.greet{
+    color: rgb(168, 144, 58);
+    margin: 0.8rem 3.3rem;
+  }
+  h2{
+    font-size: 2rem;
+    font-weight: 400;
+    margin-left: 3.3rem;
+    margin-bottom: 1.5rem;
+    
+    
+  }
+  h3{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-left: 3.3rem;
+    width: 350px;
+  }
+ 
+  nav ul li a{
+    font-size: 1.5rem;
+    font-weight: 450;
+  }
+
+}
+@media (max-width: 1280px)/*tablet*/ {
+   #main{
+      background-image: url(./nandita.jpg);
+      height: 100vh;
+      background-position: 20% 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      
+   }
+   .nandita{
+    font-size: 2.5rem;
+    font-weight: 550;
+    margin-left: 3.3rem;
+    margin-bottom: 1.5rem;
+  }
+  h2.greet{
+    color: rgb(168, 144, 58);
+    margin: 0.8rem 3.3rem;
+  }
+  h2{
+    font-size: 2rem;
+    font-weight: 400;
+    margin-left: 3.3rem;
+    margin-bottom: 1.5rem;
+  }
+  h3{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-left: 3.3rem;
+    width: 350px;
+  }
+  nav ul li a{
+    font-size: 1.2rem;
+  }
+
+}
+@media screen and (min-width: 350px) and (max-width: 480px)/*phone*/ {
+   #main{
+      background-image: url(./nandita.jpg);
+      background-position: 20%  100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 67vh;    
+    }
+  
+  .nandita{
+    font-size: 1.8rem;
+    font-weight: 550;
+    margin-left: 0.8rem;
+    margin-bottom: 1.2rem;
+  }
+  h2.greet{
+    color: rgb(168, 144, 58);
+    margin: 0.8rem ;
+  }
+  h2{
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-left: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+  h3{
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-left: 0.8rem;
+  }
+  #navbarNav{
+    text-align: right;
+    z-index: 5;
+  }
+}

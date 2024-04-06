@@ -1,0 +1,19 @@
+/* body{
+    background-image: linear-gradient(to right, rgb(159, 221, 241), rgb(51, 51, 252));
+} */
+
+.text{
+    text-align: center;
+    color: rgb(240, 33, 74);
+    font-size: 1.7rem;
+    margin-top: 2.5rem;
+    font-family: cursive;
+}
+
+.para{
+    color: gray;
+    font-size: 1rem;
+    margin-top: 2rem;
+    text-align: center;
+    font-style: italic;
+}

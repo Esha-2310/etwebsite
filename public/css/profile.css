@@ -1,0 +1,130 @@
+.profile{
+    height: 45rem;
+    width: 23rem;
+    background-color: rgb(121, 15, 220);
+    margin: 1rem 28rem;
+    box-shadow: 5px 5px 5px grey;
+}
+
+.headpart{
+    background-color: rgb(121, 15, 220);
+    height: 2.9rem;
+}
+
+.BOX{
+    background-color: white;
+    margin-top: -1.3rem;
+    height: 42.3rem;
+    border-radius: 1.1rem;
+}
+
+.BOX h3{
+    padding-top: 1.8rem;
+    padding-left: 3rem;
+    color: rgb(101, 9, 186);
+    font-size: 1.2rem;
+}
+
+.profileimg{
+    width: 4.4rem;
+    height: 4.4rem;
+    border-radius: 50%;
+    margin-left: 15.5rem;
+    margin-bottom: 1.2rem;
+    margin-top: -80px;
+    box-shadow: 2px 5px 5px grey;
+}
+
+.anotherbox{
+    background-image: linear-gradient(to right, rgb(121, 15, 220), rgb(46, 3, 85));
+    height: 9rem;
+    width: 21rem;
+    border-radius: 1rem;
+    margin-left: 1rem;
+    box-shadow: 2px 5px 5px grey;
+}
+
+h4{
+    color: white;
+    padding-left: 2rem;
+    padding-top: 1.3rem;
+}
+
+.amount{
+    color: white;
+    padding-left: -3rem;
+    padding-top: 2rem;
+    font-size: 1.5rem;
+}
+
+.smallBox{
+    background-color: white;
+    height: 4rem;
+    width: 19rem;
+    margin-top: -1rem;
+    margin-left: 1rem;
+    border-radius: 1rem;
+}
+
+.abc{
+    margin-left: 2.8rem;
+    padding-top: 1.3rem;
+    font-size: 13.1px;
+    color: rgb(15, 167, 15);
+}
+
+.abc1{
+    margin-left: 10.5rem;
+    margin-top: -3.3rem;
+    font-size: 13.1px;
+    color: blue;
+}
+
+.recent{
+    margin-top: 0.1rem;
+    margin-left: -1.7rem;
+}
+
+.shop{
+    background-color: rgb(250, 250, 250);
+    height: 3.7rem;
+    width: 21rem;
+    border-radius: 10px;
+    margin-left: 1rem;
+    box-shadow: 2px 2px 5px grey;
+    cursor: pointer;
+}
+
+.imagesrecent{
+    width: 3rem;
+    height: 2.65rem;
+    border-radius: 10px;
+    margin-left: 1rem;
+    margin-top: 7px;
+}
+
+.item{
+    margin-left: 6.2rem;
+    color: black;
+    margin-bottom: 1.2rem;
+    margin-top: -45px;
+    font-size: 1rem;
+}
+
+.cards{
+    color: grey;
+    font-size: 12px;
+}
+
+.recentamount{
+    margin-left: 15.8rem;
+    color: rgb(249, 76, 12);
+    margin-bottom: 1.2rem;
+    margin-top: -56px;
+    font-size: 1rem;
+}
+
+.time{
+    color: grey;
+    font-size: 12px;
+}
