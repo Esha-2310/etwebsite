@@ -1,1 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/f19c5d5657.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.js" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('#icon').click(function(){
+                $('ul').toggleClass('show');
+            });
+        });
+    </script>
+</head>
+
+<body background="./img/Untitled design (2).jpg"> 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light " >
+        <img src="./img/MyExpense.jpg" alt="" style="width: 5%;">
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto justify-content-end">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/index4">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/index3">Services</a>
+          </li>
+          <li class="nav-item">
+           <a class="nav-link" href="/profile">Account </a>
+            <li class="nav-item">
+           <a class="nav-link" href="/logout">Logout </a>
+          </li>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- -----home----- -->
+    <section class="home">
+        <div class="content">
+            <h1 class="anim"> <span style="color: rgb(20, 4, 79);">Take Back Control Of</span> <br>
+                              <span style="color: rgb(20, 4, 79);">Your Money.</span> </h1>
+            <p class="anim">The website is designed to streamline expense tracking and <br> help you save money.</p>
+            <a href="/index2" class="join-btn anim">Join Now</a>
+        </div>
+        <div>
+        <lottie-player class= "img_an" src="./js/Animation.json" background="transparent"  speed="1"  style="width: 700px; height: 700px;" loop  autoplay></lottie-player>
+        <!--<img src="img1.jfif" class="feature-img anim">-->
+        </div>
+    </section>
+
+
+</body>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+</html>

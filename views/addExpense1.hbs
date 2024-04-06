@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/addExpense.css">
+    <title>Expense Tracker Website</title>
+</head>
+<body>
+    <h1>Expense Tracker Website</h1>
+    <form action="/add" method="post">
+    <div class="input-section">
+        <!--<label for="amount-input" >Total Balance:</label>
+        <input type="number" id="amount-input" name="total" inputmode="numeric">-->
+        <label for="category-select" >Category:</label>
+        <select id="category-select" style="padding: 8px;" name="category">
+            <option value="Food & Beverage">Food & Beverage</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Travel">Travel</option>
+        </select>
+        <label for="amount-input" >Amount:</label>
+        <input type="number" id="amount-input" name="amt">
+        <!--<label for="date-input">Date:</label>
+        <input type="date" id="date-input">-->
+        <button id="add-btn" type="submit">Add</button>
+    </div>
+    </form>
+    <a href="/home">View Added List</a>
+   <!-- <div class="expenses-list">
+        <h2>Expenses List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="expnese-table-body">
+              
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Total:</td>
+                    <td id="total-amount"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>-->
+   <script src="./js/addExpense.js"></script>
+</body>
+</html>

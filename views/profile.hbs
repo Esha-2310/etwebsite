@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROFILE SECTION</title>
+    <link rel="stylesheet" href="./css/profile.css">
+
+    <!-- fontawesome link -->
+    <script src="https://kit.fontawesome.com/f19c5d5657.js" crossorigin="anonymous"></script>
+
+    <!-- bootstrap link -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</head>
+
+<body>  
+    <section>
+        <div class="profile">
+
+            <div class="headpart">
+            <nav class="nav">
+                <a class="nav-link active" aria-current="page" href="/" style="display: block; padding-top: 1rem; margin-left: 2.2rem; color: white; font-size: 1.16rem;">
+                    <i class="fa-sharp fa-solid fa-house-chimney"></i>
+                </a>
+
+                <a class="nav-link" href="#" style="display: block; margin-left: 7.5rem; padding-top: -3rem; margin-top: -1.4rem; color: white; text-decoration: none; font-size: 1.16rem;">
+                    Expense Tracker </a>
+
+                <a class="nav-link" href="/report" style="display: block; margin-top: -1.3rem; margin-left: 20rem; color: white; font-size: 1.16rem;">
+                    <i class="fa-regular fa-rectangle-list"></i>
+                </a>
+            </nav>
+            </div>
+
+            <div class="BOX">
+                <h3>Welcome Back ! <br> {{user.name}}</h3>
+                <img src="profile3 (2).jpg" alt="" class="profileimg">
+
+                <div class="anotherbox">
+                    <h4>Your balance <br> <span class="amount">Rs </span></h4>
+                    <div class="smallBox">
+                        <h5 class="abc">Your expense <br>Rs. {{amt}}</h5>
+                        <!--<h5 class="abc1">Start income <br>$ 7300</h5>-->
+                    </div>
+                </div>
+
+                <h3 class="recent" style="color: black;">Recent Transactions</h3>
+                {{#if data}}
+                {{#each data}}
+                <div class="shop">
+                    <img src="./img/bill1.png" alt="" class="imagesrecent">
+                    <h5 class="item">{{this.category}} <br> <!--<span class="cards">card x.x.x</span>--> </h5>
+                    <h5 class="recentamount">-{{this.amount}} <br> <span class="time">{{dateFormat this.Date "h:mm:ss"}}</span> </h5>
+                </div> <br>
+                {{/each}}
+               {{else}}
+                <p style="text-align:center;">No Transactions for Today</p>
+                {{/if}}
+              <!--  <div class="shop">
+                    <img src="./img/bill1.png" alt="" class="imagesrecent">
+                    <h5 class="item">Bill <br> <!--<span class="cards">card x.x.x</span>-- </h5>
+                    <h5 class="recentamount">-250 <br> <span class="time">12.36pm</span> </h5>
+                </div> <br>
+
+                <div class="shop">
+                    <img src="./img/food.jpg" alt="" class="imagesrecent">
+                    <h5 class="item">Food <br> <!--<span class="cards">card x.x.x</span>-- </h5>
+                    <h5 class="recentamount">-540 <br> <span class="time">2.10pm</span> </h5>
+                </div> <br>
+
+                <div class="shop">
+                    <img src="recharge.png" alt="" class="imagesrecent">
+                    <h5 class="item">Recharge <br> <!--<span class="cards">card x.x.x</span>-- </h5>
+                    <h5 class="recentamount">-199 <br> <span class="time">4.59pm</span> </h5>
+                </div> <br>-->
+
+            </div>
+        </div>
+    </section>
+</body>
+</html>

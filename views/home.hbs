@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/addExpense.css">
+    <title>Document</title>
+</head>
+<body>
+   <h1> Added Expenses</h1>
+    <div class="expenses-list">
+        <h2>Expenses List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="expnese-table-body">
+                {{#each items}}
+              <tr>
+                <td>{{this.category}}</td>
+                <td>{{this.amount}}</td>
+                <td>
+                    {{dateFormat this.Date "YYYY-MM-DD"}}
+                </td>
+                <td><a class="deleteb" href="/delete"> Delete</a></td>
+              </tr>
+              {{/each}}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Total:</td>
+                    <td id="total-amount">{{amt}}</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <script src="./js/addExpense.js"></script>
+</body>
+</html>
