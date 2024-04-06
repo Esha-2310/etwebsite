@@ -22,7 +22,7 @@ app.use(cookieParser());
 //app.set('layout','./views/home');
 
 app.use(session({
-    secret: 'keyboard cat',
+    secret:,
     resave: false,
     saveUninitialized: true,
     store: MongoStore.create({
