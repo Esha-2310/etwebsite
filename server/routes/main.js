@@ -78,11 +78,33 @@ router.get('/index4',(req,res)=>{
     res.render("index4");
 });
 router.get('/addExpense1',authMiddleware,async(req,res)=>{
-   // const amount=await collection.find({_id:req.userId},{_id:0,Total:1})
-    //console.log(amount)
-    res.render("addExpense1");
+   /*const Total=await collection.find({_id:req.userId},{_id:0,Total:1,amount:1 })
+   const amt= await amount(req.userId)
+   const balance=Total-amt*/
+    res.render("addExpense1")
 });
 router.get('/report',authMiddleware,async(req,res)=>{
+
+     const date1=new Date()
+    const d11=moment(date1).subtract(1, "days").format('YYYY-MM-DD')
+    const d22=moment(date1).add(1, "days").format('YYYY-MM-DD')
+   console.log(d11)
+    console.log(d22)
+    const v=await collection2.aggregate([
+        {
+            $match:{
+                owner:new mongoose.Types.ObjectId(req.userId)
+            }
+        },
+       {
+            $match:{ Date:{$gt:new Date(d11),$lt:new Date(d22)}}
+        }
+    ])
+    const name=await collection.findOne({_id:req.userId})
+    let resultArr=[]
+    resultArr=Result(v)
+      const amt1= await amount(req.userId)
+      const balance=name.Total-amt1
     const data= await collection2.aggregate([
         {
             $match:{
@@ -94,19 +116,88 @@ router.get('/report',authMiddleware,async(req,res)=>{
                 _id:"$category",
                 amt:{$sum:"$amount"}
             }
+        },
+        { $sort : { _id: 1 } }
+    ])
+    const data2= await collection2.aggregate([
+        {
+            $match:{
+                owner:new mongoose.Types.ObjectId(req.userId)
+            }
+        },
+        {
+            $group:{
+               _id:{$dateToString: {format: "%b", date: "$Date"}},
+                amt:{$sum:"$amount"}
+            }
+        },
+        { $sort : { _id: 1 } }
+    ])
+   // console.log(data2)
+    const date=new Date()
+    const d1=moment(date).format('YYYY-MM-DD')
+    const d2=moment(date).subtract(7, "days").format('YYYY-MM-DD')
+    const d3=moment(date).subtract(1, "month").format('MMM')
+   // const d2=moment(date).add(1, "days").format('YYYY-MM-DD')
+   
+   //console.log(date)
+    const v1=await collection2.aggregate([
+        {
+            $match:{
+                owner:new mongoose.Types.ObjectId(req.userId)
+            }
+        },
+        {
+            $match:{ Date:{$gt:new Date(d2),$lt:new Date(d1)}}
+        },
+        {
+            $group:{
+               _id: null,
+                amt:{$sum:"$amount"}
+            }
         }
     ])
-    let resultArr=[]
-    resultArr=Result(data)
-   // console.log(resultArr)
-    res.render("report",{data:resultArr});
+   //console.log(v)
+    let resultArr1=[]
+    let resultArr2=[]
+    let resultArr3=[]
+    resultArr1=Result(data)
+    resultArr2=Result(data2)
+    resultArr3=Result(v1)
+   console.log(resultArr)
+   /* let m=[]
+    for(let i=0;i<resultArr.length;i++){
+        if(resultArr[i]['_id']==='Food & Beverage')
+        { 
+            resultArr[i]['_id']='FoodandBeverage'
+        }
+        m[i]=resultArr[i]['_id']
+     }
+    //console.log(typeof data)
+    let n=[]
+    for(let i=0;i<resultArr.length;i++){
+        n[i]=resultArr[i]['amt']
+     }
+    
+     /*console.log(n)
+     console.log(typeof n)
+     try{
+     var a=JSON.stringify(n)
+     console.log(typeof a)
+     }catch(error) {
+        console.log('Error parsing JSON:', error, data);
+    }
+     //console.log(a)*/
+     const amt= await amount(req.userId)
+     console.log(resultArr2)
+    res.render("report",{user:name,amt1,balance,week:resultArr3,data:resultArr,cat:resultArr1,mon:resultArr2})
 });
-router.get('/profile',authMiddleware,async(req,res)=>{
+/*router.get('/profile',authMiddleware,async(req,res)=>{
     const date=new Date()
     const d1=moment(date).subtract(1, "days").format('YYYY-MM-DD')
     const d2=moment(date).add(1, "days").format('YYYY-MM-DD')
-    console.log(d1)
-    console.log(d2)
+   // console.log(d1)
+    //console.log(d2)
     const v=await collection2.aggregate([
         {
             $match:{
@@ -118,13 +209,12 @@ router.get('/profile',authMiddleware,async(req,res)=>{
         }
     ])
     const name=await collection.findOne({_id:req.userId})
-   //console.log(name)
     let resultArr=[]
     resultArr=Result(v)
       const amt= await amount(req.userId)
-      console.log(amt)
-    res.render("profile",{user:name,amt,data:resultArr});
-});
+      const balance=name.Total-amt
+    res.render("profile",{user:name,balance,amt,data:resultArr});
+});*/
 router.get('/home',authMiddleware,async(req,res)=>{
     let resultArr=[]
    // const date=new Date()
@@ -163,12 +253,13 @@ router.post("/signup",async (req,res)=>{
        //const verificationToken = user.generateVerificationToken();
       // console.log(user._id)
        const token = jwt.sign({ _id: user._id}, process.env.JWT_SECRET)
-      /* transporter.sendMail({
+       const url = `http://localhost:3000/verify?id=${token}`
+       transporter.sendMail({
          to: user.email,
          subject: 'Verify Account',
          html: `Click <a href = "${url}">here</a> to confirm your email.`
        })
-       res.send(`Sent a verification email to ${user.email}`);*/
+       res.send(`Sent a verification email to ${user.email}`);
         res.render("index");
     }
 }catch(error)
@@ -251,7 +342,7 @@ router.post("/add", authMiddleware,async(req,res)=>{
             amt:req.body.amt
         }*/
    await collection2.insertMany([{owner:req.userId,category:req.body.category,amount:req.body.amt}])
-  const result= await collection.updateOne({_id:req.userId},{$set:{Total:req.body.total}})
+  const result= await collection.updateOne({owner:req.userId},{$set:{Total:req.body.total}})
    
   /* const newExp = new collection2({
     ...req.body,
